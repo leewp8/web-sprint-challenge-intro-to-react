@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import './App.css';
+import Character from './components/Character'
+import Details from './components/Details'
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -38,7 +41,7 @@ const App = () => {
       <h1 className="Header">STAR WARS CHARACTERS</h1>
       {
         characters.map((char) => {
-          return <div
+          return <Character
                     key={char.id} 
                     info={char} 
                     action={openDetails} 
@@ -46,7 +49,7 @@ const App = () => {
         })
       }
       {
-        currentCharacterId && <div characterId={currentCharacterId} close={closeDetails}/>
+        currentCharacterId && <Details characterId={currentCharacterId} close={closeDetails}/>
       }
     </div>
   );
